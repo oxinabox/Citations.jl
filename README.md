@@ -38,12 +38,12 @@ To declare a citation for a module,
 declare a `cite` trait for the modules `eval` function.
 
 ```
-Citation.cite(::typeof(MyModule.eval)) = "2019, Author, Package
+Citation.cite(::typeof(MyModule.eval)) = "2019, Author, Package"
 ```
 
 Or use the `@declare_citation` macro, with only one argument.
 ```
-@declare_citation "2019, Author, Package
+@declare_citation "2019, Author, Package"
 ```
 
 ## Using Citations.jl in your packages
