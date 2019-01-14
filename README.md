@@ -46,3 +46,36 @@ Or use the `@declare_citation` macro, with only one argument.
 @declare_citation "2019, Author, Package
 ```
 
+# Using Citations.jl in your packages
+Suppose you are Jane Doe, the maintainer of SomeCoolPackage.jl and you want your users to be able to cite your package as well as your two functions, `awesomefunction1` and `awesomefunction2`. You can import Citations.jl into your package and export  citation methods as follows
+```julia
+module SomeCoolPackage
+
+using Citations 
+using Citations: cite 
+
+awesomefunction1(x) = "do cool stuff"
+awesomefunction2(x) = "do other cool stuff"
+
+@declare_citation SomeCoolPackage, "2019, Jane Doe, SomeCoolPackage.jl"
+Citations.cite(::typeof(awesomefunction1)) = "2019, Jane Doe, awesomefunction1, SomeCoolPackage.jl"
+Citations.cite(::typeof(awesomefunction2)) = "2019, Jane Doe, awesomefunction2, SomeCoolPackage.jl"
+               
+
+export cite, awesomefunction1, awesomefunction2
+
+end
+```
+Your users can then easily generate citation info at the REPL
+```julia
+julia> using SomeCoolPackage
+
+julia> cite(SomeCoolPackage)
+(Main.SomeCoolPackage, "2019, Jane Doe, SomeCoolPackage.jl")
+
+julia> cite(awesomefunction1)
+"2019, Jane Doe, awesomefunction1, SomeCoolPackage.jl"
+
+julia> cite(awesomefunction2)
+"2019, Jane Doe, awesomefunction2, SomeCoolPackage.jl"
+```
