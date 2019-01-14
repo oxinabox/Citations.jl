@@ -46,7 +46,7 @@ Or use the `@declare_citation` macro, with only one argument.
 @declare_citation "2019, Author, Package
 ```
 
-# Using Citations.jl in your packages
+## Using Citations.jl in your packages
 Suppose you are Jane Doe, the maintainer of SomeCoolPackage.jl and you want your users to be able to cite your package as well as your two functions, `awesomefunction1` and `awesomefunction2`. You can import Citations.jl into your package and export  citation methods as follows
 ```julia
 module SomeCoolPackage
