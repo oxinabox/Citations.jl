@@ -27,10 +27,10 @@ end
 Citations.cite(::typeof(thing) = "2001, Jane Doe, Considerations of a Thing"
 ```
 
-Or you can use the helper macro `@declare_citation`:
+Or you can use the helper function `declare_citation`:
 
 ```
-@declare_citation thing,  "2001, Jane Doe, Considerations of a Thing"
+declare_citation(thing,  "2001, Jane Doe, Considerations of a Thing")
 ```
 
 #### Module (e.g. package)
@@ -41,9 +41,9 @@ declare a `cite` trait for the modules `eval` function.
 Citation.cite(::typeof(MyModule.eval)) = "2019, Author, Package"
 ```
 
-Or use the `@declare_citation` macro, with only one argument.
+Or use the `declare_citation` helper function again
 ```
-@declare_citation "2019, Author, Package"
+declare_citation(MyModule, "2019, Author, Package")
 ```
 
 ## Using Citations.jl in your packages
@@ -56,7 +56,7 @@ using Citations
 awesomefunction1(x) = "do cool stuff"
 awesomefunction2(x) = "do other cool stuff"
 
-@declare_citation "2019, Jane Doe, SomeCoolPackage.jl"
+declare_citation(SomeCoolPackage, "2019, Jane Doe, SomeCoolPackage.jl")
 Citations.cite(::typeof(awesomefunction1)) = "2019, Jane Doe, awesomefunction1, SomeCoolPackage.jl"
 Citations.cite(::typeof(awesomefunction2)) = "2019, Jane Doe, awesomefunction2, SomeCoolPackage.jl"
 
