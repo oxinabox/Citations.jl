@@ -5,10 +5,10 @@ module Demo
     using Citations
     export mul, add
     
-    @declare_citation "Demo Citation Module"
+    declare_citation(Demo, "Demo Citation Module")
 
     mul(x,y)=x*y
-    @declare_citation mul "-2000BC, Babylonians, Multiplication"
+    declare_citation(mul, "-2000BC, Babylonians, Multiplication")
     
     add(x,y) = x+y
     Citations.cite(::typeof(add)) = "Lost To Time, Addition"
