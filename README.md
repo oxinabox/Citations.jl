@@ -30,7 +30,7 @@ Citations.cite(::typeof(thing) = "2001, Jane Doe, Considerations of a Thing"
 Or you can use the helper macro `@declare_citation`:
 
 ```
-@declate_citation thing,  "2001, Jane Doe, Considerations of a Thing"
+@declare_citation thing,  "2001, Jane Doe, Considerations of a Thing"
 ```
 
 #### Module (e.g. package)
